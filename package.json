@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-env NODE_ENV=test jest --verbose --watch --runInBand --detectOpenHandles",
+    "test": "cross-env DB_ENV=test jest --verbose --watch --runInBand --detectOpenHandles",
     "start": "node index.js"
   },
   "jest": {
@@ -30,6 +30,7 @@
     "helmet": "^3.21.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.8",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
