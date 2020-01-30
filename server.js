@@ -27,7 +27,7 @@ server.get('/', (req, res) => {
 
 server.use('/api/auth', authRouter)
 server.use('/api/users', authenticate, userRouter)
-// server.use('/api/stories',authenticate, storiesRouter )
+server.use('/api/stories', storiesRouter )
 
 server.use((err, req, res, next) => {
     console.log(err)
