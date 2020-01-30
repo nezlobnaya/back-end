@@ -21,8 +21,8 @@ server.use(cors({
 server.use(express.json());
 
 server.get('/', (req, res) => {
-    // const messageOfTheDay = process.env.MOTD || "Per aspera ad astra"
-    res.send('<h2>Per aspera ad astra </h2>')
+    const messageOfTheDay = process.env.MOTD || "Per aspera ad astra"
+    res.send(`<h2>${messageOfTheDay}</h2>`)
 })
 
 server.use('/api/auth', authRouter)
