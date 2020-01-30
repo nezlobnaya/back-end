@@ -5,7 +5,7 @@ const db = require('../data/db-config')
 
 describe('Auth router testing', () => {
     beforeEach(async () => {
-        await db('users').truncate()
+        await db.seed.run()
     })
     describe('Post /register', () => {
         it('should return 201 and a token', () => {
