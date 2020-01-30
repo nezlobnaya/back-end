@@ -13,7 +13,7 @@ exports.up = function(knex) {
         tbl.text('contents').notNullable()
         tbl.string('name')
         tbl.string('email')
-        tbl.boolean('pending').notNullable()
+        tbl.boolean('pending').notNullable().defaultTo(true)
         tbl.integer('user_id')
           .unsigned()
           .references('id')
