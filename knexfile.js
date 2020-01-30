@@ -14,21 +14,6 @@ module.exports = {
     },
     seeds: { directory: './data/seeds' },
   },
-  production: {
-    client: 'sqlite3',
-    connection: { filename: './data/refugees.db3' },
-    useNullAsDefault: true,
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
-    },
-    migrations: {
-      directory: './data/migrations',
-      tableName: 'dbmigrations',
-    },
-    seeds: { directory: './data/seeds' },
-  },
   testing: {
     client: 'sqlite3',
     connection: {
@@ -38,5 +23,23 @@ module.exports = {
     migrations: {
       directory: './data/migrations',
     },
+    seeds: {
+      directory: './data/seeds',
+    },
   },
+  // production: {
+  //   client: 'sqlite3',
+  //   connection: { filename: './data/refugees.db3' },
+  //   useNullAsDefault: true,
+  //   pool: {
+  //     afterCreate: (conn, done) => {
+  //       conn.run('PRAGMA foreign_keys = ON', done);
+  //     },
+  //   },
+  //   migrations: {
+  //     directory: './data/migrations',
+  //     tableName: 'dbmigrations',
+  //   },
+  //   seeds: { directory: './data/seeds' },
+  // }
 };
