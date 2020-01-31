@@ -13,6 +13,22 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/pending', restricted, (req, res) => {
+    const { role } = req.decodedToken
+
+    if (role === 'admin'){
+        Stories.getPendingStories()
+        .then(stories => {
+            res.json(stories)
+        })
+        .catch(err => {
+            console.log(err)
+            next(err)
+        })
+    } 
+})
+
+
 router.get('/:id', (req, res) => {
     const {id} = req.params
 
@@ -29,25 +45,6 @@ router.get('/:id', (req, res) => {
         })
 })
 
-router.get('/pending', restricted, (req, res) => {
-    const { sub, role } = req.decodedToken
-
-    if (role === 'admin'){
-        Stories.getPendingStories()
-        .then(stories => {
-            res.json(stories)
-        })
-        .catch(err => {
-            next(err)
-        })
-    } else {
-        Stories.findById(sub)
-        .then(story => {
-            res.json(story)
-        })
-        .catch(err => res.status(500).send(err))
-    }
-})
 
 
 router.post('/', restricted, (req, res) => {

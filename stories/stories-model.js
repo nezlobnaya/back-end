@@ -71,5 +71,5 @@ function removeComment(commentId) {
 
 function getPendingStories() {
     return db('stories')
-        .where({pending: 1})
+        .where({ pending: 1})
 }
