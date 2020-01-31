@@ -74,15 +74,15 @@ Expect a header authorization token -- returns a message:
 
  # Get all user stories (get)
  https://refu-stories-backend.herokuapp.com/api/stories
- Doesn't expect anything -- unsecure route -- returns an array of JS object of stories
+ Doesn't expect anything -- unsecured route -- returns an array of JS object of stories
 
  # Get by story id (get)
  https://refu-stories-backend.herokuapp.com/api/stories/:id
- Doesn't expect anything -- unsecure route -- returns JS object of story with id matching the url
+ Doesn't expect anything -- unsecured route -- returns JS object of story with id matching the url
 
- # Get PENDING stories (get)
+ # Get PENDING stories (get) restricted route, need to be logged in as admin
  https://refu-stories-backend.herokuapp.com/api/stories/pending
- returns a list of ONLY pending stories. must be logged in as admin:
+ Expect a header authorization token -- returns a list of ONLY pending stories
 
  ```[
   {
@@ -106,17 +106,17 @@ Expect a header authorization token -- returns a message:
 ]
 ```
 
- # Post a new story (post)
+ # Post a new story (post), restricted route, need to be logged in 
  https://refu-stories-backend.herokuapp.com/api/stories
  expects a body with mandatory title & contents
  body can also include name, email, and user_id
  resolves to the newly added story
 
- # Edit an existing story (put)
+ # Edit an existing story (put), restricted route, need to be logged in
 https://refu-stories-backend.herokuapp.com/api/stories/:id
  expects a body with title,contents, and story_id 
 
- # Remove an existing story (delete)
+ # Remove an existing story (delete), restricted route, need to be logged in
  https://refu-stories-backend.herokuapp.com/api/stories/:id
  doesn't expect anything
 
