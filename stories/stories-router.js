@@ -13,6 +13,22 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    const {id} = req.params
+
+    Stories.findById(id)
+        .then(story => {
+            if (story) {
+                res.status(200).json(story)
+            } else {
+                res.status(401).json({message: "Unable to find a story wih the given id"})
+            }
+        })
+        .catch(err => {
+            res.status(500).json({message: "Failed to find story ",err})
+        })
+})
+
 router.get('/pending', restricted, (req, res) => {
     const { sub, role } = req.decodedToken
 
