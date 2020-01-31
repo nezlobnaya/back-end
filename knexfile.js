@@ -29,13 +29,11 @@ module.exports = {
     },
   },
   production: {
-    client: 'sqlite3',
-    connection: { filename: './data/refugees.db3' },
-    useNullAsDefault: true,
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
+     min:2,
+     max:10
     },
     migrations: {
       directory: './data/migrations',
