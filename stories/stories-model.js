@@ -22,9 +22,8 @@ function findBy(filter) {
     return db('stories').where(filter)
 }
 
-async function add(story) {
-    const [id] = await db('stories').insert(story)
-    return findById(id)
+function add(story) {
+    return db('stories').insert(story).returning('*')
 }
 
 function findById(id) {
@@ -43,10 +42,7 @@ function remove(id) {
 function update(changes, id) {
     return db('stories')
         .where({id})
-        .update(changes)
-        .then(ids => {
-            return findById(id)
-        })
+        .update(changes).returning('*')
 }
 
 function getComments(storyId) {
@@ -63,9 +59,8 @@ function getCommentById(id) {
         .first()
 }
 
-async function addComment(comment) {
-    const [id] = await db('comments').insert(comment)
-    return getCommentById(id)
+function addComment(comment) {
+    return db('comments').insert(comment).returning('*')
 }
 
 function removeComment(commentId) {

@@ -16,11 +16,9 @@ function findBy(filter) {
   return db('users').where(filter);
 }
 
-async function add(user) {
-  const [id] = await db('users').insert(user)
+  function add(user) {
+  return db('users').insert(user)
   .returning('*');
-
-  return findById(id);
 }
 
 function findById(id) {
@@ -29,6 +27,6 @@ function findById(id) {
     .first();
 }
 
-async function removeUser(id) {
+function removeUser(id) {
     return db('users').where({ id }).del()
 }
