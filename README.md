@@ -135,4 +135,6 @@ Contact the author - https://github.com/nezlobnaya
 ## License
 - [MIT] (https://opensource.org/licenses/MIT)
 
+![Visualization of the codebase](./diagram.svg)
+
 MIT © [nezlobnaya](Vlad Burlutskiy);
