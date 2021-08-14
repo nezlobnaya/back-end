@@ -20,10 +20,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
-      - name: Update diagram
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      # Visualizes your repository under $GITHUB_WORKSPACE
+      - name: Repo Visualizer
         uses: githubocto/repo-visualizer@0.5.0
+
  
     
 
