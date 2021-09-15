@@ -4,7 +4,7 @@
   "description": "Back end developers here (unit 4)",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env DB_ENV=testing jest --verbose --watch",
+    "test": "cross-env DB_ENV=testing jest --verbose --watchAll --runInBand --detectOpenHandles",
     "start": "node index.js",
     "server": "cross-env DB_ENV=development nodemon index.js"
   },
