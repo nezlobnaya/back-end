@@ -4,12 +4,5 @@ node_js:
   # Node 10.3+ includes npm@6 which has good "npm ci" command
   - 14.15.4
 
-# if using Ubuntu 16 need this library
-# https://github.com/cypress-io/cypress-documentation/pull/1647
-addons:
-  apt:
-    packages:
-    - libgconf-2-4
-
 notifications:
   email: false
