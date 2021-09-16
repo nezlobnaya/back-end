@@ -23,7 +23,7 @@ function findBy(filter) {
 }
 
 function add(story) {
-    return db('stories').insert(story).returning('*')
+    return db('stories').insert(story)
 }
 
 function findById(id) {
@@ -42,7 +42,7 @@ function remove(id) {
 function update(changes, id) {
     return db('stories')
         .where({id})
-        .update(changes).returning('*')
+        .update(changes)
 }
 
 function getComments(storyId) {
@@ -60,7 +60,7 @@ function getCommentById(id) {
 }
 
 function addComment(comment) {
-    return db('comments').insert(comment).returning('*')
+    return db('comments').insert(comment)
 }
 
 function removeComment(commentId) {
