@@ -2,12 +2,7 @@ language: node_js
 
 node_js:
   # Node 10.3+ includes npm@6 which has good "npm ci" command
-  - 14.15.4
-install: travis_wait mvn install -DskipTests=true
-script: mvn test
-after_success: travis_wait mvn verify
-after_failure: travis_wait mvn verify
-
+  - 14.15.4 
 
 notifications:
   email: false
